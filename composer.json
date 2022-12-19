@@ -16,7 +16,6 @@
   "require": {
     "doctrine/orm": "^2.6",
     "doctrine/doctrine-bundle": "^2.7",
-    "friendsofsymfony/rest-bundle": "^3.4",
     "jms/serializer-bundle": "^5.0.2",
     "nelmio/api-doc-bundle": "^3.4",
     "symfony/asset": "^5.4",
