@@ -11,7 +11,7 @@ use Gweb\TecdocBundle\Entity\Traits\LanguageDescriptionTrait;
  *
  * @ORM\Table(name="Tecdoc200_Article", options={"comment"="Article main data table","engine"="InnoDB ROW_FORMAT=COMPRESSED"})
  * @ORM\Entity
- * @ORM\EntityListeners("Gweb\TecdocBundle\EventListener\TranslateListener")
+ * @ORM\EntityListeners({"Gweb\TecdocBundle\EventListener\TranslateListener"})
  * @File\Table(name="200", provider=1)
  */
 class Tecdoc200Article
