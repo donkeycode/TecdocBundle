@@ -3,7 +3,7 @@
 namespace Gweb\TecdocBundle\Entity\Traits;
 
 use Doctrine\Common\Collections\Collection;
-use Gweb\TecdocBundle\Entity\Tecdoc035TextModule;
+use App\Tecdoc\Entity\Tecdoc035TextModule;
 
 /**
  * Translate text module
