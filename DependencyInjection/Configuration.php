@@ -13,8 +13,8 @@ class Configuration implements ConfigurationInterface
 
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('gweb_tecdoc');
+        $treeBuilder = new TreeBuilder('gweb_tecdoc');
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->children()
