@@ -3,7 +3,7 @@
 namespace Gweb\TecdocBundle\Command;
 
 use Gweb\TecdocBundle\Service\ImportManager;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -14,7 +14,7 @@ use Symfony\Component\Process\Process;
  *
  * @author Gerd Weitenberg <gweitenb@gmail.com>
  */
-class ImportCommand extends ContainerAwareCommand
+class ImportCommand extends Command
 {
     /**
      * @var ImportManager
