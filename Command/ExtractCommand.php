@@ -3,12 +3,11 @@
 namespace Gweb\TecdocBundle\Command;
 
 use Gweb\TecdocBundle\Service\FileExtract;
-use Symfony\Component\Console\Command\Command;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 /**
  * Command to extract tecdoc 7z compressed files
@@ -18,20 +17,8 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
  *
  * @author Gerd Weitenberg <gweitenb@gmail.com>
  */
-class ExtractCommand extends Command
+class ExtractCommand extends ContainerAwareCommand
 {
-    /**
-     * @var ParameterBagInterface
-     */
-    private $params;
-
-    public function __construct(ParameterBagInterface $params)
-    {
-        parent::__construct();
-
-        $this->params = $params;
-    }
-
     protected function configure()
     {
         $this->setName('tecdoc:extract')
@@ -49,26 +36,29 @@ class ExtractCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
+        $container = $this->getContainer();
+
         if ($input->getOption('reference') !== false) {
             FileExtract::reference(
-                $this->params->get('gweb_tecdoc.dir_download_reference'),
-                $this->params->get('gweb_tecdoc.dir_data_reference'),
+                $container->getParameter('gweb_tecdoc.dir_download_reference'),
+                $container->getParameter('gweb_tecdoc.dir_data_reference'),
                 $input->getOption('reference')
             );
         }
 
         if ($input->getOption('supplier') !== false) {
             FileExtract::suppliers(
-                $this->params->get('gweb_tecdoc.dir_download_supplier'),
-                $this->params->get('gweb_tecdoc.dir_data_supplier')
+                $container->getParameter('gweb_tecdoc.dir_download_supplier'),
+                $container->getParameter('gweb_tecdoc.dir_data_supplier')
             );
         }
 
         if ($input->getOption('media') !== false) {
             FileExtract::media(
-                $this->params->get('gweb_tecdoc.dir_download_media'),
-                $this->params->get('gweb_tecdoc.dir_data_media')
+                $container->getParameter('gweb_tecdoc.dir_download_media'),
+                $container->getParameter('gweb_tecdoc.dir_data_media')
             );
         }
     }
+
 }
