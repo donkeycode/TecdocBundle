@@ -3,7 +3,7 @@
 namespace Gweb\TecdocBundle\Command;
 
 use Gweb\TecdocBundle\Service\FileExtract;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -17,7 +17,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  *
  * @author Gerd Weitenberg <gweitenb@gmail.com>
  */
-class ExtractCommand extends ContainerAwareCommand
+class ExtractCommand extends Command
 {
     protected function configure()
     {
